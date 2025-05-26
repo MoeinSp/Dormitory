@@ -8,16 +8,26 @@ namespace Pishrafte
 {
     internal class Usermanager
     {
-        private List<User> users = new List<User>();
+        private List<User> students = new List<User>();
+        private List<User> Blockmanagers = new List<User>();
+        private List<User> Dormitorymanagers = new List<User>();
         private List<User> ADMIN = new List<User>
         {
             new User("ADMIN11","ADMIN11"),
             new User("ADMIN22","ADMIN22")
         };
 
-        public void Adduser(User user)
+        public void Addstudent(User student)
         {
-            users.Add(user);
+            students.Add(student);
+        }
+        public void AddBlockmanager(User Blockmanager)
+        {
+            Blockmanagers.Add(Blockmanager);
+        }
+        public void AddDormitorymanager(User Dormitorymanager)
+        {
+            Dormitorymanagers.Add(Dormitorymanager);
         }
         public bool isUserExists(User user)
         {

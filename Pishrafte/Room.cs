@@ -9,11 +9,11 @@ namespace Pishrafte
     internal class Room
     {
         public int RoomID;
-        public int tabaghe;
-        private int zarfiat = 6;
+        public int NumberofFloors;
+        private int MaximumCapacity = 6;
         public List<Equipment> Equipments;
-        public List<Daneshju> Daneshjus;
-        public Boluk Boluk;
+        public List<Student> Students;
+        public Block Boluk;
       ///یادت باشه شرط ظرفیت رو بزاری توی متد اد
     }
 }

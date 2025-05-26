@@ -10,9 +10,9 @@ namespace Pishrafte
     {
         public string Equimentname;
         public string Partnumber;
-        public string shomareamval ;
+        public string AssetNumber ;
         public string status;
         public Room Room ;
-        public Daneshju malek;
+        public Student Owner;
     }
 }

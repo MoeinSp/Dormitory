@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pishrafte
 {
-    internal class Adminboluk:Daneshju
+    internal class BlockManager:Student
     {
         public string Semat;
-        public Boluk Boluk;
+        public Block Block;
     }
 }

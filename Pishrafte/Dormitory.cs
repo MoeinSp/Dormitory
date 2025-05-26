@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Pishrafte
 {
-    internal class Khabgah
+    internal class Dormitory
     {
-        public string name;
+        public string Name;
         public string Address;
         public int max;
-        public Khabgahadmin Khabgahadmin;
-        private List<Boluk> Boluks;
+        public DormitoryManager DormitoryManager;
+        private List<Block> BLOCK;
     }
 }

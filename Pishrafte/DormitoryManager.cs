@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pishrafte
 {
-    internal class Khabgahadmin : Person
+    internal class DormitoryManager  : Person
     {
         public string Semat;
-        public Khabgah Khabgah;
+        public Dormitory Dormitory;
     }
 }

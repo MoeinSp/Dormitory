@@ -10,7 +10,7 @@ namespace Pishrafte
     {
         public string FirstName;
         public string LastName;
-        public int ShomareMeli;
+        public int NationalIDNumber;
         public string Address;
         public int Age;
     }

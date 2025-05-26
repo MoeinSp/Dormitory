@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Pishrafte
 {
-    internal class Boluk
+    internal class Block
     {
-        public string name;
+        public string Name;
         public string Address;
         public int Tedadtabaghe;
-        public Adminboluk adminboluk;
+        public BlockManager BlockManager;
         private List<Room> Room;
-        public Khabgah Khabgah;
+        public Dormitory Dormitory;
 
     }
 }

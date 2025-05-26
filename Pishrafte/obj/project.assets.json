@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\moein\\source\\repos\\Pishrafte\\Pishrafte\\Pishrafte.csproj",
+      "projectUniqueName": "D:\\git\\Pishrafte\\Pishrafte\\Pishrafte.csproj",
       "projectName": "Pishrafte",
-      "projectPath": "C:\\Users\\moein\\source\\repos\\Pishrafte\\Pishrafte\\Pishrafte.csproj",
+      "projectPath": "D:\\git\\Pishrafte\\Pishrafte\\Pishrafte.csproj",
       "packagesPath": "C:\\Users\\moein\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moein\\source\\repos\\Pishrafte\\Pishrafte\\obj\\",
+      "outputPath": "D:\\git\\Pishrafte\\Pishrafte\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
