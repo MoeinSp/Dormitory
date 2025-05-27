@@ -41,13 +41,35 @@ namespace Pishrafte
         {
             Dormitorymanagers.Add(Dormitorymanager);
         }
-        public bool NationalIdExists(int NationalId)
-        { 
+        public bool NationalIdExists(int NationalId, List<Student> students,List<DormitoryManager> dormitoryManagers , List<BlockManager> blockManagers)
+        {
+            foreach(Student student in students)
+                if(NationalId==student.NationalIDNumber) return true;
+            foreach(BlockManager blockManager in blockManagers)
+                if(NationalId == blockManager.NationalIDNumber) return true;
+            foreach(DormitoryManager dormitoryManager in dormitoryManagers)
+                if(NationalId == dormitoryManager.NationalIDNumber) return true;
+            return false;
         }
-        public bool StudentIDNumberExists(int StudentIDNumber)
-        { }
-        public bool PhonenumberExists(int Phonenumber)
-        { }
+        public bool StudentIDNumberExists(int StudentIDNumber, List<Student> students, List<BlockManager> blockManagers)
+        {
+            foreach (Student student in students)
+                if (StudentIDNumber == student.NationalIDNumber) return true;
+            foreach (BlockManager blockManager in blockManagers)
+                if (StudentIDNumber == blockManager.NationalIDNumber) return true;
+            return false;
+        }
+        
+        public bool PhonenumberExists(int Phonenumber, List<Student> students, List<DormitoryManager> dormitoryManagers, List<BlockManager> blockManagers)
+        {
+            foreach (Student student in students)
+                if (Phonenumber == student.NationalIDNumber) return true;
+            foreach (BlockManager blockManager in blockManagers)
+                if (Phonenumber == blockManager.NationalIDNumber) return true;
+            foreach (DormitoryManager dormitoryManager in dormitoryManagers)
+                if (Phonenumber == dormitoryManager.NationalIDNumber) return true;
+            return false;
+        }
         public String isUserExists(User user)
         {
             foreach (var item in students)

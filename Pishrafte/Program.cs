@@ -9,10 +9,10 @@ class Program
 {
     static Usermanager Usermanager = new Usermanager();
     static User currentUser;
-    static List<BlockManager> Blockmanagers = new List<BlockManager>();
-    static List<DormitoryManager> DormitoryManagers = new List<DormitoryManager>();
-    static List<Student> Students = new List<Student>();
-    static List<Equipment> Equipments = new List<Equipment>();
+    static List<BlockManager> blockManager = new List<BlockManager>();
+    static List<DormitoryManager> dormitoryManagers = new List<DormitoryManager>();
+    static List<Student> students = new List<Student>();
+    static List<Equipment> equipments = new List<Equipment>();
     public enum UserRole
     {
         Student,
@@ -145,6 +145,10 @@ class Program
             case 0:
                 break;
             case 1:
+
+
+
+
                 Console.Clear();
                 Console.WriteLine("=== Student Registration ===");
 
@@ -161,9 +165,9 @@ class Program
                     Console.Write("Invalid input. Please enter a valid National ID Number: ");
                 }
 
-                if (Usermanager.NationalIdExists(nationalId))
+                if (Usermanager.NationalIdExists(nationalId,students, dormitoryManagers,blockManager))
                 {
-                    Console.WriteLine("A student with this National ID already exists.");
+                    Console.WriteLine("A user with this National ID already exists.");
                     return;
                 }
                 Console.Write("Enter PhoneNumber: ");
@@ -173,9 +177,9 @@ class Program
                     Console.Write("Invalid input. Please enter a valid PhoneNumber: ");
                 }
 
-                if (Usermanager.PhonenumberExists(phonenumber))
+                if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManager))
                 {
-                    Console.WriteLine("A student with this phonenumber already exists.");
+                    Console.WriteLine("A user with this phonenumber already exists.");
                     return;
                 }
 
@@ -195,12 +199,28 @@ class Program
                 {
                     Console.Write("Invalid input. Please enter a valid Student ID Number: ");
                 }
+                if (Usermanager.StudentIDNumberExists(studentId, students, blockManager))
+                {
+                    Console.WriteLine("A user with this phonenumber already exists.");
+                    return;
+                }
 
                 Student student = new Student(firstName, lastName, nationalId, phonenumber, address, age, studentId);
-               
-                Usermanager.Addstudent(student);
 
+                Console.WriteLine("Enter your username:");
+                string username = Console.ReadLine();
+                Console.WriteLine("Enter your Password:");
+                string password = Console.ReadLine();
+                User tempUser = new User(username, password, UserRole.Student);
+                Usermanager.Addstudent(tempUser);
+                students.Add(student);
                 Console.WriteLine("✅ Student registered successfully!");
+                int input;
+                do
+                {
+                    Console.WriteLine("Please enter 1 to Login:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                Login();
                 break;
             case 2:
                 break;
