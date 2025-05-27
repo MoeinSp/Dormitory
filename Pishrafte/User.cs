@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Program;
 
 namespace Pishrafte
 {
@@ -10,10 +11,21 @@ namespace Pishrafte
     {
         public string Username;
         public string Password;
-        public User(string username, string password)
+        public UserRole Role;
+        public Person personinfo;
+
+        public User(string username, string password, UserRole role)
         {
             Username = username;
             Password = password;
+            Role = role;
+        }
+        public User(string username, string password, UserRole role, Person person)
+        {
+            Username = username;
+            Password = password;
+            Role = role;
+            personinfo = person;
         }
     }
 }

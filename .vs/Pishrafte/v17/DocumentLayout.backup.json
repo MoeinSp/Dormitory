@@ -7,40 +7,48 @@
       "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\blockmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\blockmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\daneshju.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\daneshju.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\dormitorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\dormitorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\khabgah.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\khabgah.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\adminboluk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\adminboluk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\boluk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\boluk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\adminkhabcs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\adminkhabcs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\dormitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\dormitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\pishrafte.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\pishrafte.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|solutionrelative:pishrafte\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2398860A-FF94-463A-9ED5-609D573FA392}|Pishrafte\\Pishrafte.csproj|d:\\git\\pishrafte\\pishrafte\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,104 +78,130 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
+              "Title": "Pishrafte",
+              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Pishrafte.csproj",
+              "RelativeDocumentMoniker": "Pishrafte\\Pishrafte.csproj",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Pishrafte.csproj",
+              "RelativeToolTip": "Pishrafte\\Pishrafte.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-27T09:49:20.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Admin.cs",
+              "RelativeDocumentMoniker": "Pishrafte\\Admin.cs",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Admin.cs",
+              "RelativeToolTip": "Pishrafte\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T18:47:17.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\User.cs",
               "RelativeDocumentMoniker": "Pishrafte\\User.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\User.cs",
-              "RelativeToolTip": "Pishrafte\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\User.cs*",
+              "RelativeToolTip": "Pishrafte\\User.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T14:48:57.285Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Room.cs",
               "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Room.cs",
               "RelativeDocumentMoniker": "Pishrafte\\Room.cs",
               "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Room.cs",
               "RelativeToolTip": "Pishrafte\\Room.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T08:57:23.106Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Equipment.cs",
               "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Equipment.cs",
               "RelativeDocumentMoniker": "Pishrafte\\Equipment.cs",
               "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Equipment.cs",
               "RelativeToolTip": "Pishrafte\\Equipment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T08:57:03.058Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "boluk.cs",
-              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\boluk.cs",
-              "RelativeDocumentMoniker": "Pishrafte\\boluk.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\boluk.cs",
-              "RelativeToolTip": "Pishrafte\\boluk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Block.cs",
+              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Block.cs",
+              "RelativeDocumentMoniker": "Pishrafte\\Block.cs",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Block.cs*",
+              "RelativeToolTip": "Pishrafte\\Block.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T08:56:38.795Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "adminboluk.cs",
-              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\adminboluk.cs",
-              "RelativeDocumentMoniker": "Pishrafte\\adminboluk.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\adminboluk.cs",
-              "RelativeToolTip": "Pishrafte\\adminboluk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "BlockManager.cs",
+              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\BlockManager.cs",
+              "RelativeDocumentMoniker": "Pishrafte\\BlockManager.cs",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\BlockManager.cs*",
+              "RelativeToolTip": "Pishrafte\\BlockManager.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T08:52:18.795Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Khabgah.cs",
-              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Khabgah.cs",
-              "RelativeDocumentMoniker": "Pishrafte\\Khabgah.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Khabgah.cs",
-              "RelativeToolTip": "Pishrafte\\Khabgah.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Dormitory.cs",
+              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Dormitory.cs",
+              "RelativeDocumentMoniker": "Pishrafte\\Dormitory.cs",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Dormitory.cs*",
+              "RelativeToolTip": "Pishrafte\\Dormitory.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T21:13:25.901Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "daneshju.cs",
-              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\daneshju.cs",
-              "RelativeDocumentMoniker": "Pishrafte\\daneshju.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\daneshju.cs",
-              "RelativeToolTip": "Pishrafte\\daneshju.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Student.cs",
+              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Student.cs",
+              "RelativeDocumentMoniker": "Pishrafte\\Student.cs",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Student.cs*",
+              "RelativeToolTip": "Pishrafte\\Student.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T20:53:10.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Person.cs",
               "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Person.cs",
               "RelativeDocumentMoniker": "Pishrafte\\Person.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Person.cs",
-              "RelativeToolTip": "Pishrafte\\Person.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Person.cs*",
+              "RelativeToolTip": "Pishrafte\\Person.cs*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAwBAAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T20:50:28.38Z",
               "EditorCaption": ""
@@ -178,36 +212,38 @@
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Program.cs",
               "RelativeDocumentMoniker": "Pishrafte\\Program.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Program.cs",
-              "RelativeToolTip": "Pishrafte\\Program.cs",
-              "ViewState": "AgIAAO8AAAAAAAAAAAAcwAABAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Program.cs*",
+              "RelativeToolTip": "Pishrafte\\Program.cs*",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAYwMAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-19T18:36:31.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "Usermanager.cs",
               "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\Usermanager.cs",
               "RelativeDocumentMoniker": "Pishrafte\\Usermanager.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Usermanager.cs",
-              "RelativeToolTip": "Pishrafte\\Usermanager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\Usermanager.cs*",
+              "RelativeToolTip": "Pishrafte\\Usermanager.cs*",
+              "ViewState": "AgIAACkAAAAAAAAAAAAswC8AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T14:49:24.822Z"
+              "WhenOpened": "2025-05-21T14:49:24.822Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "adminkhabcs.cs",
-              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\adminkhabcs.cs",
-              "RelativeDocumentMoniker": "Pishrafte\\adminkhabcs.cs",
-              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\adminkhabcs.cs",
-              "RelativeToolTip": "Pishrafte\\adminkhabcs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "DormitoryManager.cs",
+              "DocumentMoniker": "D:\\git\\Pishrafte\\Pishrafte\\DormitoryManager.cs",
+              "RelativeDocumentMoniker": "Pishrafte\\DormitoryManager.cs",
+              "ToolTip": "D:\\git\\Pishrafte\\Pishrafte\\DormitoryManager.cs*",
+              "RelativeToolTip": "Pishrafte\\DormitoryManager.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T20:51:50.45Z"
+              "WhenOpened": "2025-05-19T20:51:50.45Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -12,3 +12,11 @@ C:\Users\moein\source\repos\Pishrafte\Pishrafte\obj\Debug\net8.0\refint\Pishraft
 C:\Users\moein\source\repos\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.pdb
 C:\Users\moein\source\repos\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.genruntimeconfig.cache
 C:\Users\moein\source\repos\Pishrafte\Pishrafte\obj\Debug\net8.0\ref\Pishrafte.dll
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.GeneratedMSBuildEditorConfig.editorconfig
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.AssemblyInfoInputs.cache
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.AssemblyInfo.cs
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.csproj.CoreCompileInputs.cache
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.sourcelink.json
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.dll
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\refint\Pishrafte.dll
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.pdb

@@ -8,7 +8,7 @@ namespace Pishrafte
 {
     internal class DormitoryManager  : Person
     {
-        public string Semat;
+        public string Role;
         public Dormitory Dormitory;
     }
 }

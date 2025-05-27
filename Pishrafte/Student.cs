@@ -13,5 +13,11 @@ namespace Pishrafte
         public Dormitory Dormitory;
         public Block Block;
         private List<Equipment> PersonalEquipments;
+
+        public Student(string firstName, string lastName, int nationalIDNumber, int phoneNumber, string address, int age, int studentIDNumber)
+                : base(firstName, lastName, nationalIDNumber, phoneNumber, address, age)
+        {
+            StudentIDNumber = studentIDNumber;
+        }
     }
 }

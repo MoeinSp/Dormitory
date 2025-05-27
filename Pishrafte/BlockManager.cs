@@ -8,7 +8,7 @@ namespace Pishrafte
 {
     internal class BlockManager:Student
     {
-        public string Semat;
+        public string Role;
         public Block Block;
     }
 }

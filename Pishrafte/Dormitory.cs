@@ -10,7 +10,7 @@ namespace Pishrafte
     {
         public string Name;
         public string Address;
-        public int max;
+        public int MaximumCapacity;
         public DormitoryManager DormitoryManager;
         private List<Block> BLOCK;
     }

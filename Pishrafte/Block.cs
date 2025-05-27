@@ -10,7 +10,7 @@ namespace Pishrafte
     {
         public string Name;
         public string Address;
-        public int Tedadtabaghe;
+        public int NumberofFloors;
         public BlockManager BlockManager;
         private List<Room> Room;
         public Dormitory Dormitory;

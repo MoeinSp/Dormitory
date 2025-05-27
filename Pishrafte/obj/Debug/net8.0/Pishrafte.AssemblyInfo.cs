@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pishrafte")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc3af3ce7fedda5609984e246d56c052cbab9aaf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c8474ed0c6401e064b826c24350e99ffc3316ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pishrafte")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pishrafte")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
