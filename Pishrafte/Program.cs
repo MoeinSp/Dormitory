@@ -9,7 +9,7 @@ class Program
 {
     static Usermanager Usermanager = new Usermanager();
     static User currentUser;
-    static List<BlockManager> blockManager = new List<BlockManager>();
+    static List<BlockManager> blockManagers = new List<BlockManager>();
     static List<DormitoryManager> dormitoryManagers = new List<DormitoryManager>();
     static List<Student> students = new List<Student>();
     static List<Equipment> equipments = new List<Equipment>();
@@ -99,16 +99,76 @@ class Program
                 }
                 break;
             case 2:
-                Console.WriteLine("Enter your username");
-                Console.WriteLine("Enter your Password");
+                Console.WriteLine("Enter your username:");
+                username = Console.ReadLine();
+                Console.WriteLine("Enter your Password:");
+                password = Console.ReadLine();
+                tempUser = new User(username, password, UserRole.BlockManager);
+                if (Usermanager.isUserExists(tempUser) == "Block Manager")
+                {
+                    Usermanager.CurrentUser = tempUser;
+                    Mainmenu();
+                }
+                else
+                {
+                    string invalid1;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid username or password.");
+                        Console.WriteLine("Enter 1 to continue.");
+                        invalid1 = Console.ReadLine();
+                    } while (invalid1 != "1");
+                    Loginas();
+                }
                 break;
             case 3:
-                Console.WriteLine("Enter your username");
-                Console.WriteLine("Enter your Password");
+                Console.WriteLine("Enter your username:");
+                username = Console.ReadLine();
+                Console.WriteLine("Enter your Password:");
+                password = Console.ReadLine();
+                tempUser = new User(username, password, UserRole.DormManager);
+                if (Usermanager.isUserExists(tempUser) == "Dorm Manager")
+                {
+                    Usermanager.CurrentUser = tempUser;
+                    Mainmenu();
+                }
+                else
+                {
+                    string invalid1;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid username or password.");
+                        Console.WriteLine("Enter 1 to continue.");
+                        invalid1 = Console.ReadLine();
+                    } while (invalid1 != "1");
+                    Loginas();
+                }
                 break;
             case 4:
-                Console.WriteLine("Enter your username");
-                Console.WriteLine("Enter your Password");
+                Console.WriteLine("Enter your username:");
+                username = Console.ReadLine();
+                Console.WriteLine("Enter your Password:");
+                password = Console.ReadLine();
+                tempUser = new User(username, password, UserRole.Admin);
+                if (Usermanager.isUserExists(tempUser) == "Admin")
+                {
+                    Usermanager.CurrentUser = tempUser;
+                    Mainmenu();
+                }
+                else
+                {
+                    string invalid1;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid username or password.");
+                        Console.WriteLine("Enter 1 to continue.");
+                        invalid1 = Console.ReadLine();
+                    } while (invalid1 != "1");
+                    Loginas();
+                }
                 break;
             case 5:
                 Login();
@@ -165,7 +225,7 @@ class Program
                     Console.Write("Invalid input. Please enter a valid National ID Number: ");
                 }
 
-                if (Usermanager.NationalIdExists(nationalId,students, dormitoryManagers,blockManager))
+                if (Usermanager.NationalIdExists(nationalId,students, dormitoryManagers,blockManagers))
                 {
                     Console.WriteLine("A user with this National ID already exists.");
                     return;
@@ -177,7 +237,7 @@ class Program
                     Console.Write("Invalid input. Please enter a valid PhoneNumber: ");
                 }
 
-                if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManager))
+                if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManagers))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
                     return;
@@ -199,7 +259,7 @@ class Program
                 {
                     Console.Write("Invalid input. Please enter a valid Student ID Number: ");
                 }
-                if (Usermanager.StudentIDNumberExists(studentId, students, blockManager))
+                if (Usermanager.StudentIDNumberExists(studentId, students, blockManagers))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
                     return;
@@ -223,8 +283,145 @@ class Program
                 Login();
                 break;
             case 2:
+
+
+                Console.Clear();
+                Console.WriteLine("=== Block Manager Registration ===");
+
+                Console.Write("Enter First Name: ");
+                firstName = Console.ReadLine();
+
+                Console.Write("Enter Last Name: ");
+                lastName = Console.ReadLine();
+
+                Console.Write("Enter National ID Number: ");
+                while (!int.TryParse(Console.ReadLine(), out nationalId))
+                {
+                    Console.Write("Invalid input. Please enter a valid National ID Number: ");
+                }
+
+                if (Usermanager.NationalIdExists(nationalId, students, dormitoryManagers, blockManagers))
+                {
+                    Console.WriteLine("A user with this National ID already exists.");
+                    return;
+                }
+                Console.Write("Enter PhoneNumber: ");
+                while (!int.TryParse(Console.ReadLine(), out phonenumber))
+                {
+                    Console.Write("Invalid input. Please enter a valid PhoneNumber: ");
+                }
+
+                if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManagers))
+                {
+                    Console.WriteLine("A user with this phonenumber already exists.");
+                    return;
+                }
+
+                Console.Write("Enter Address: ");
+                address = Console.ReadLine();
+
+                Console.Write("Enter Age: ");
+                while (!int.TryParse(Console.ReadLine(), out age))
+                {
+                    Console.Write("Invalid input. Please enter a valid Age: ");
+                }
+
+                Console.Write("Enter Student ID Number: ");
+                while (!int.TryParse(Console.ReadLine(), out studentId))
+                {
+                    Console.Write("Invalid input. Please enter a valid Student ID Number: ");
+                }
+                if (Usermanager.StudentIDNumberExists(studentId, students, blockManagers))
+                {
+                    Console.WriteLine("A user with this phonenumber already exists.");
+                    return;
+                }
+                Console.Write("Enter Role: ");
+                string role = Console.ReadLine();
+
+                BlockManager blockManager = new BlockManager(firstName, lastName, nationalId, phonenumber, address, age, studentId , role);
+
+                Console.WriteLine("Enter your username:");
+                username = Console.ReadLine();
+                Console.WriteLine("Enter your Password:");
+                password = Console.ReadLine();
+                tempUser = new User(username, password, UserRole.BlockManager);
+                Usermanager.AddBlockmanager(tempUser);
+                blockManagers.Add(blockManager);
+                Console.WriteLine("✅ Block Manager registered successfully!");
+                do
+                {
+                    Console.WriteLine("Please enter 1 to Login:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                Login();
+
+
+
                 break;
             case 3:
+
+                Console.Clear();
+                Console.WriteLine("=== Dorm Manager Registration ===");
+
+                Console.Write("Enter First Name: ");
+                firstName = Console.ReadLine();
+
+                Console.Write("Enter Last Name: ");
+                lastName = Console.ReadLine();
+
+                Console.Write("Enter National ID Number: ");
+                while (!int.TryParse(Console.ReadLine(), out nationalId))
+                {
+                    Console.Write("Invalid input. Please enter a valid National ID Number: ");
+                }
+
+                if (Usermanager.NationalIdExists(nationalId, students, dormitoryManagers, blockManagers))
+                {
+                    Console.WriteLine("A user with this National ID already exists.");
+                    return;
+                }
+                Console.Write("Enter PhoneNumber: ");
+                while (!int.TryParse(Console.ReadLine(), out phonenumber))
+                {
+                    Console.Write("Invalid input. Please enter a valid PhoneNumber: ");
+                }
+
+                if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManagers))
+                {
+                    Console.WriteLine("A user with this phonenumber already exists.");
+                    return;
+                }
+
+                Console.Write("Enter Address: ");
+                address = Console.ReadLine();
+
+                Console.Write("Enter Age: ");
+                while (!int.TryParse(Console.ReadLine(), out age))
+                {
+                    Console.Write("Invalid input. Please enter a valid Age: ");
+                }
+
+                Console.Write("Enter Role: ");
+                role = Console.ReadLine();
+
+                DormitoryManager dormitoryManager = new DormitoryManager(firstName, lastName, nationalId, phonenumber, address, age, role);
+
+                Console.WriteLine("Enter your username:");
+                username = Console.ReadLine();
+                Console.WriteLine("Enter your Password:");
+                password = Console.ReadLine();
+                tempUser = new User(username, password, UserRole.BlockManager);
+                Usermanager.AddBlockmanager(tempUser);
+                dormitoryManagers.Add(dormitoryManager);
+                Console.WriteLine("✅ Dormitory Manager successfully!");
+                do
+                {
+                    Console.WriteLine("Please enter 1 to Login:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                Login();
+
+
+
                 break;
             case 4:
                 Login();

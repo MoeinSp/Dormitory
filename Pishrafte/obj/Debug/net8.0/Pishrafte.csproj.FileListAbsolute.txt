@@ -20,3 +20,10 @@ D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.sourcelink.json
 D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.dll
 D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\refint\Pishrafte.dll
 D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.pdb
+D:\git\Pishrafte\Pishrafte\bin\Debug\net8.0\Pishrafte.exe
+D:\git\Pishrafte\Pishrafte\bin\Debug\net8.0\Pishrafte.deps.json
+D:\git\Pishrafte\Pishrafte\bin\Debug\net8.0\Pishrafte.runtimeconfig.json
+D:\git\Pishrafte\Pishrafte\bin\Debug\net8.0\Pishrafte.dll
+D:\git\Pishrafte\Pishrafte\bin\Debug\net8.0\Pishrafte.pdb
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\Pishrafte.genruntimeconfig.cache
+D:\git\Pishrafte\Pishrafte\obj\Debug\net8.0\ref\Pishrafte.dll

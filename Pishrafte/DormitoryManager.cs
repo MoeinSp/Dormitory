@@ -10,5 +10,10 @@ namespace Pishrafte
     {
         public string Role;
         public Dormitory Dormitory;
+        public DormitoryManager(string firstName, string lastName, int nationalIDNumber, int phoneNumber, string address, int age, string role)
+            : base(firstName, lastName, nationalIDNumber, phoneNumber, address, age)
+        {
+            Role = role;
+        }
     }
 }
