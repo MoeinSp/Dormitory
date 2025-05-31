@@ -80,12 +80,12 @@ namespace Pishrafte
             foreach (var item in Blockmanagers)
             {
                 if (item.Username == user.Username && item.Password == user.Password)
-                    return "Blockmanager";
+                    return "Block Manager";
             }
             foreach (var item in Dormitorymanagers)
             {
                 if (item.Username == user.Username && item.Password == user.Password)
-                    return "Dormitorymanager";
+                    return "Dormitory Manager";
             }
             foreach (var item in ADMIN)
             {

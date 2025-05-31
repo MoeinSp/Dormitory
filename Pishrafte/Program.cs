@@ -128,7 +128,7 @@ class Program
                 Console.WriteLine("Enter your Password:");
                 password = Console.ReadLine();
                 tempUser = new User(username, password, UserRole.DormManager);
-                if (Usermanager.isUserExists(tempUser) == "Dorm Manager")
+                if (Usermanager.isUserExists(tempUser) == "Dormitory Manager")
                 {
                     Usermanager.CurrentUser = tempUser;
                     Mainmenu();
@@ -217,7 +217,7 @@ class Program
 
                 Console.Write("Enter Last Name: ");
                 string lastName = Console.ReadLine();
-
+                Wrong1:
                 Console.Write("Enter National ID Number: ");
                 int nationalId;
                 while (!int.TryParse(Console.ReadLine(), out nationalId))
@@ -228,8 +228,9 @@ class Program
                 if (Usermanager.NationalIdExists(nationalId,students, dormitoryManagers,blockManagers))
                 {
                     Console.WriteLine("A user with this National ID already exists.");
-                    return;
+                    goto Wrong1;
                 }
+            Wrong2:
                 Console.Write("Enter PhoneNumber: ");
                 int phonenumber;
                 while (!int.TryParse(Console.ReadLine(), out phonenumber))
@@ -240,7 +241,7 @@ class Program
                 if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManagers))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
-                    return;
+                    goto Wrong2;
                 }
 
                 Console.Write("Enter Address: ");
@@ -252,7 +253,7 @@ class Program
                 {
                     Console.Write("Invalid input. Please enter a valid Age: ");
                 }
-
+            Wrong3:
                 Console.Write("Enter Student ID Number: ");
                 int studentId;
                 while (!int.TryParse(Console.ReadLine(), out studentId))
@@ -262,7 +263,7 @@ class Program
                 if (Usermanager.StudentIDNumberExists(studentId, students, blockManagers))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
-                    return;
+                    goto Wrong3;
                 }
 
                 Student student = new Student(firstName, lastName, nationalId, phonenumber, address, age, studentId);
@@ -274,7 +275,7 @@ class Program
                 User tempUser = new User(username, password, UserRole.Student);
                 Usermanager.Addstudent(tempUser);
                 students.Add(student);
-                Console.WriteLine("✅ Student registered successfully!");
+                Console.WriteLine(" Student registered successfully!");
                 int input;
                 do
                 {
@@ -293,7 +294,7 @@ class Program
 
                 Console.Write("Enter Last Name: ");
                 lastName = Console.ReadLine();
-
+                Wrong7:
                 Console.Write("Enter National ID Number: ");
                 while (!int.TryParse(Console.ReadLine(), out nationalId))
                 {
@@ -303,8 +304,9 @@ class Program
                 if (Usermanager.NationalIdExists(nationalId, students, dormitoryManagers, blockManagers))
                 {
                     Console.WriteLine("A user with this National ID already exists.");
-                    return;
+                    goto Wrong7;
                 }
+            Wrong8:
                 Console.Write("Enter PhoneNumber: ");
                 while (!int.TryParse(Console.ReadLine(), out phonenumber))
                 {
@@ -314,7 +316,7 @@ class Program
                 if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManagers))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
-                    return;
+                    goto Wrong8;
                 }
 
                 Console.Write("Enter Address: ");
@@ -325,7 +327,7 @@ class Program
                 {
                     Console.Write("Invalid input. Please enter a valid Age: ");
                 }
-
+            Wrong9:
                 Console.Write("Enter Student ID Number: ");
                 while (!int.TryParse(Console.ReadLine(), out studentId))
                 {
@@ -334,7 +336,7 @@ class Program
                 if (Usermanager.StudentIDNumberExists(studentId, students, blockManagers))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
-                    return;
+                    goto Wrong9;
                 }
                 Console.Write("Enter Role: ");
                 string role = Console.ReadLine();
@@ -348,7 +350,7 @@ class Program
                 tempUser = new User(username, password, UserRole.BlockManager);
                 Usermanager.AddBlockmanager(tempUser);
                 blockManagers.Add(blockManager);
-                Console.WriteLine("✅ Block Manager registered successfully!");
+                Console.WriteLine(" Block Manager registered successfully!");
                 do
                 {
                     Console.WriteLine("Please enter 1 to Login:");
@@ -368,7 +370,7 @@ class Program
 
                 Console.Write("Enter Last Name: ");
                 lastName = Console.ReadLine();
-
+            Wrong5:
                 Console.Write("Enter National ID Number: ");
                 while (!int.TryParse(Console.ReadLine(), out nationalId))
                 {
@@ -378,8 +380,9 @@ class Program
                 if (Usermanager.NationalIdExists(nationalId, students, dormitoryManagers, blockManagers))
                 {
                     Console.WriteLine("A user with this National ID already exists.");
-                    return;
+                    goto Wrong5;
                 }
+            Wrong6:
                 Console.Write("Enter PhoneNumber: ");
                 while (!int.TryParse(Console.ReadLine(), out phonenumber))
                 {
@@ -389,7 +392,7 @@ class Program
                 if (Usermanager.PhonenumberExists(phonenumber, students, dormitoryManagers, blockManagers))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
-                    return;
+                    goto Wrong6;
                 }
 
                 Console.Write("Enter Address: ");
@@ -410,10 +413,10 @@ class Program
                 username = Console.ReadLine();
                 Console.WriteLine("Enter your Password:");
                 password = Console.ReadLine();
-                tempUser = new User(username, password, UserRole.BlockManager);
-                Usermanager.AddBlockmanager(tempUser);
+                tempUser = new User(username, password, UserRole.DormManager);
+                Usermanager.AddDormitorymanager(tempUser);
                 dormitoryManagers.Add(dormitoryManager);
-                Console.WriteLine("✅ Dormitory Manager successfully!");
+                Console.WriteLine(" Dormitory Manager successfully!");
                 do
                 {
                     Console.WriteLine("Please enter 1 to Login:");
