@@ -18,7 +18,14 @@ namespace Pishrafte
         {
             Role = role;
         }
-        public static DormitoryManager SelectDormitoryManager(List<DormitoryManager> dormitoryManagers)
+
+
+
+
+
+
+
+        public static DormitoryManager ShowDormitoryManager(List<DormitoryManager> dormitoryManagers)
         {
             for (int i = 1; i <= dormitoryManagers.Count;i++)
             {
@@ -28,12 +35,106 @@ namespace Pishrafte
 
             do
             {
-                Console.Write("Please enter a number between " + 1 + " and " + dormitoryManagers.Count + ":" );
+                Console.WriteLine("From the list of available dormitory managers, please enter the number of your choice:");
+
             }
             while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitoryManagers.Count);
 
             return dormitoryManagers[input-1];
         }
+
+
+
+        public static int SselectDormitoryManager(List<DormitoryManager> dormitoryManagers)
+        {
+            int count = 1;
+            for (int i = 0; i < dormitoryManagers.Count; i++)
+            {
+                if (dormitoryManagers[i].Dormitory == null)
+                {
+                    Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
+                    count++;
+                }
+            }
+            int input;
+
+            do
+            {
+                Console.WriteLine("From the list of available dormitory managers, please enter the number of your choice:");
+
+            }
+            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitoryManagers.Count);
+
+            return count - 1;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        public static DormitoryManager SelectDormitoryManager(List<DormitoryManager> dormitoryManagers)
+        {
+            int count = 1;
+            for (int i = 0; i < dormitoryManagers.Count; i++)
+            {
+                if (dormitoryManagers[i].Dormitory == null)
+                {
+                    Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
+                    count++;
+                }
+            }
+            int input;
+
+            do
+            {
+                Console.WriteLine("From the list of available dormitory managers, please enter the number of your choice:");
+
+            }
+            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitoryManagers.Count);
+
+            return dormitoryManagers[input - 1];
+        }
+
+        public static int countWithoutDormitory(List<DormitoryManager> dormitoryManagers)
+        {
+            int count = 0;
+            for (int i = 0; i < dormitoryManagers.Count; i++)
+            {
+                if (dormitoryManagers[i].Dormitory == null)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+
+
+
+        public static void Showdata(DormitoryManager dormitoryManager)
+        {
+            Console.WriteLine("First Name: " + dormitoryManager.FirstName);
+            Console.WriteLine("Last Name: " + dormitoryManager.LastName);
+            Console.WriteLine("National ID: " + dormitoryManager.NationalIDNumber);
+            Console.WriteLine("Phone Number: " + dormitoryManager.PhoneNumber);
+            Console.WriteLine("Address: " + dormitoryManager.Address);
+            Console.WriteLine("Age: " + dormitoryManager.Age);
+            Console.WriteLine("Role: " + dormitoryManager.Role);
+            Console.WriteLine("Dormitory Name: " + (dormitoryManager.Dormitory != null ? dormitoryManager.Dormitory.Name : "None"));
+        }
+
+
+
+
+
+
         public static DormitoryManager CrateDormitoryManager(List<DormitoryManager> dormitoryManagers,List<Student> students,List<BlockManager> blockManagers)
         {
             Console.Write("Enter First Name: ");

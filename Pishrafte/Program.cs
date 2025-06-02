@@ -13,6 +13,8 @@ class Program
     static List<DormitoryManager> dormitoryManagers = new List<DormitoryManager>();
     static List<Student> students = new List<Student>();
     static List<Equipment> equipments = new List<Equipment>();
+    static List<Dormitory> dormitories = new List<Dormitory>();
+    static List<Block> blocks = new List<Block>();
     public enum UserRole
     {
         Student,
@@ -217,7 +219,7 @@ class Program
 
                 Console.Write("Enter Last Name: ");
                 string lastName = Console.ReadLine();
-                Wrong1:
+            Wrong1:
                 Console.Write("Enter National ID Number: ");
                 int nationalId;
                 while (!int.TryParse(Console.ReadLine(), out nationalId))
@@ -225,7 +227,7 @@ class Program
                     Console.Write("Invalid input. Please enter a valid National ID Number: ");
                 }
 
-                if (Usermanager.NationalIdExists(nationalId,students, dormitoryManagers,blockManagers))
+                if (Usermanager.NationalIdExists(nationalId, students, dormitoryManagers, blockManagers))
                 {
                     Console.WriteLine("A user with this National ID already exists.");
                     goto Wrong1;
@@ -294,7 +296,7 @@ class Program
 
                 Console.Write("Enter Last Name: ");
                 lastName = Console.ReadLine();
-                Wrong7:
+            Wrong7:
                 Console.Write("Enter National ID Number: ");
                 while (!int.TryParse(Console.ReadLine(), out nationalId))
                 {
@@ -341,7 +343,7 @@ class Program
                 Console.Write("Enter Role: ");
                 string role = Console.ReadLine();
 
-                BlockManager blockManager = new BlockManager(firstName, lastName, nationalId, phonenumber, address, age, studentId , role);
+                BlockManager blockManager = new BlockManager(firstName, lastName, nationalId, phonenumber, address, age, studentId, role);
 
                 Console.WriteLine("Enter your username:");
                 username = Console.ReadLine();
@@ -437,65 +439,132 @@ class Program
                     Console.WriteLine("Invalid option.");
                     Console.WriteLine("Enter [0] to return");
                     invalid = Console.ReadLine();
-                } while (invalid != "0") ;
-Registeras();
-break;
+                } while (invalid != "0");
+                Registeras();
+                break;
         }
     }
 
 
 
     static void Mainmenu()
-{
-    Console.Clear();
-    Console.WriteLine("Please choose an option:");
-    Console.WriteLine("1. Dormitory Management");
-    Console.WriteLine("2. Block Management");
-    Console.WriteLine("3. User Management");
-    Console.WriteLine("4. Asset Management");
-    Console.WriteLine("5. Reporting ");
-    Console.WriteLine("6. Support");
-    Console.WriteLine("7. Log Out");
-    Console.WriteLine("0. Exit(Don't use)");
-    int choise = Convert.ToInt32(Console.ReadLine());
-    switch (choise)
     {
-        case 0:
-            break;
-        case 1:
-            DormitoryManagement();
-            break;
-        case 2:
-            BlockManagement();
-            break;
-        case 3:
-            UserManagement();
-            break;
-        case 4:
-            AssetManagement();
-            break;
-        case 5:
-            Reporting();
-            break;
-        case 6:
-            Support();
-            break;
-        case 7:
-            Login();
-            break;
-        default:
-            string invalid;
-            do
-            {
+        Console.Clear();
+        Console.WriteLine("Please choose an option:");
+        Console.WriteLine("1. Dormitory Management");
+        Console.WriteLine("2. Block Management");
+        Console.WriteLine("3. Person Management");
+        Console.WriteLine("4. Asset Management");
+        Console.WriteLine("5. Reporting ");
+        Console.WriteLine("6. Support");
+        Console.WriteLine("7. Log Out");
+        Console.WriteLine("0. Exit(Don't use)");
+        int choise = Convert.ToInt32(Console.ReadLine());
+        switch (choise)
+        {
+            case 0:
+                break;
+            case 1:
+                DormitoryManagement();
+                break;
+            case 2:
+                BlockManagement();
+                break;
+            case 3:
+                PersonManagement();
+                break;
+            case 4:
+                AssetManagement();
+                break;
+            case 5:
+                Reporting();
+                break;
+            case 6:
+                Support();
+                break;
+            case 7:
+                Login();
+                break;
+            default:
+                string invalid;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid option.");
+                    Console.WriteLine("Enter [0] to return");
+                    invalid = Console.ReadLine();
+                } while (invalid != "0");
+                Mainmenu();
+                break;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    static void DormitoryManagement()
+    {
+        Console.Clear();
+        Console.WriteLine("Please choose an option:");
+        Console.WriteLine("1. Add New Dormitory");
+        Console.WriteLine("2. Delete Dormitory");
+        Console.WriteLine("3. Edit Dormitory Information");
+        Console.WriteLine("4. View Dormitory List");
+        Console.WriteLine("5. Back");
+        Console.WriteLine("0. Exit(Don't use)");
+        int choise = Convert.ToInt32(Console.ReadLine());
+        switch (choise)
+        {
+            case 0:
+                break;
+            case 1:
                 Console.Clear();
-                Console.WriteLine("Invalid option.");
-                Console.WriteLine("Enter [0] to return");
-                invalid = Console.ReadLine();
-            } while (invalid != "0");
-            Mainmenu();
-            break;
+                var touple = Dormitory.CrateDormitory(dormitoryManagers, students, blockManagers);
+                Dormitory dorm = touple.Item1;
+                DormitoryManager dormitorymanager = touple.Item2;
+                dormitories.Add(dorm);
+                dormitoryManagers.Add(dormitorymanager);
+                int index = dorm.AssignDormitoryToManager(dormitoryManagers);
+                dormitoryManagers[index].Dormitory = dorm;
+                Console.WriteLine("Dormitory registered successfully.\n Enter 1 to continue.");
+                int input;
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                DormitoryManagement();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                Mainmenu();
+                break;
+            default:
+                string invalid;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid option.");
+                    Console.WriteLine("Enter [0] to return");
+                    invalid = Console.ReadLine();
+                } while (invalid != "0");
+                DormitoryManagement();
+                break;
+        }
+
+
     }
-}
 
 
 
@@ -505,38 +574,221 @@ break;
 
 
 
-
-
-static void DormitoryManagement()
-{
-    Console.Clear();
-    Console.WriteLine("Please choose an option:");
-    Console.WriteLine("1. Add New Dormitory");
-    Console.WriteLine("2. Delete Dormitory");
-    Console.WriteLine("3. Edit Dormitory Information");
-    Console.WriteLine("4. View Dormitory List");
-    Console.WriteLine("5. Back");
-    Console.WriteLine("0. Exit(Don't use)");
-    int choise = Convert.ToInt32(Console.ReadLine());
-    switch (choise)
+    static void BlockManagement()
     {
-        case 0:
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            Mainmenu();
-            break;
+        {
+            Console.Clear();
+            Console.WriteLine("Please choose an option:");
+            Console.WriteLine("1. Add New Block");
+            Console.WriteLine("2. Delete Block");
+            Console.WriteLine("3. Edit Block Information");
+            Console.WriteLine("4. View Block List");
+            Console.WriteLine("5. Back");
+            Console.WriteLine("0. Exit(Don't use)");
+            int choise = Convert.ToInt32(Console.ReadLine());
+        }
     }
 
 
-}
+
+
+
+
+
+    static void PersonManagement()
+    {
+
+        Console.Clear();
+        Console.WriteLine("Please choose an option:");
+        Console.WriteLine("1. Dormitory Managers Management");
+        Console.WriteLine("2. Block Managers Management");
+        Console.WriteLine("3. Student Management");
+        Console.WriteLine("4. Back");
+        Console.WriteLine("0. Exit(Don't use)");
+        int choise = Convert.ToInt32(Console.ReadLine());
+        switch (choise)
+        {
+            case 0:
+                break;
+            case 1:
+                DormitoryManagersManagement();
+                break;
+            case 2:
+                BlockManagersManagement();
+                break;
+            case 3:
+                StudentManagement();
+                break;
+            case 4:
+                Mainmenu();
+                break;
+            default:
+                string invalid;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid option.");
+                    Console.WriteLine("Enter [0] to return");
+                    invalid = Console.ReadLine();
+                } while (invalid != "0");
+                PersonManagement();
+                break;
+        }
+    }
+
+    static void StudentManagement()
+    {
+        Console.Clear();
+        Console.WriteLine("Please choose an option:");
+        Console.WriteLine("1. Dormitory Managers Management");
+        Console.WriteLine("2. Block Managers Management");
+        Console.WriteLine("3. Student Management");
+        Console.WriteLine("4. Back");
+        Console.WriteLine("0. Exit(Don't use)");
+        int choise = Convert.ToInt32(Console.ReadLine());
+        switch (choise)
+        {
+            case 0:
+                break;
+            case 1:
+                DormitoryManagersManagement();
+                break;
+            case 2:
+                BlockManagersManagement();
+                break;
+            case 3:
+                StudentManagement();
+                break;
+            case 4:
+                Mainmenu();
+                break;
+            default:
+                string invalid;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid option.");
+                    Console.WriteLine("Enter [0] to return");
+                    invalid = Console.ReadLine();
+                } while (invalid != "0");
+                StudentManagement();
+                break;
+        }
+    }
+
+
+
+
+    static void BlockManagersManagement()
+    {
+        Console.Clear();
+        Console.WriteLine("Please choose an option:");
+        Console.WriteLine("1. Dormitory Managers Management");
+        Console.WriteLine("2. Block Managers Management");
+        Console.WriteLine("3. Student Management");
+        Console.WriteLine("4. Back");
+        Console.WriteLine("0. Exit(Don't use)");
+        int choise = Convert.ToInt32(Console.ReadLine());
+        switch (choise)
+        {
+            case 0:
+                break;
+            case 1:
+                DormitoryManagersManagement();
+                break;
+            case 2:
+                BlockManagersManagement();
+                break;
+            case 3:
+                StudentManagement();
+                break;
+            case 4:
+                Mainmenu();
+                break;
+            default:
+                string invalid;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid option.");
+                    Console.WriteLine("Enter [0] to return");
+                    invalid = Console.ReadLine();
+                } while (invalid != "0");
+                BlockManagersManagement();
+                break;
+        }
+    }
+
+
+
+    static void DormitoryManagersManagement()
+    {
+        Console.Clear();
+        Console.WriteLine("Please choose an option:");
+        Console.WriteLine("1. Add new Dormitory Manager");
+        Console.WriteLine("2. Delete dormitory manager");
+        Console.WriteLine("3. Edit dormitory manager information");
+        Console.WriteLine("4. View the list of dormitory managers");
+        Console.WriteLine("5. Back");
+        Console.WriteLine("0. Exit(Don't use)");
+        int choise = Convert.ToInt32(Console.ReadLine());
+        switch (choise)
+        {
+            case 0:
+                break;
+            case 1:
+                dormitoryManagers.Add(DormitoryManager.CrateDormitoryManager(dormitoryManagers, students, blockManagers));
+                DormitoryManagersManagement();
+                break;
+            case 2:
+                int aa = DormitoryManager.SselectDormitoryManager(dormitoryManagers);
+                int a = Dormitory.IndexdDormitoryManager(dormitories, dormitoryManagers[aa]);
+                Console.WriteLine(a);
+                dormitories[a-1].DormitoryManager = null;
+                // check
+                dormitoryManagers.RemoveAt(aa);
+                DormitoryManagersManagement();
+                break;
+            case 3:
+                break;
+            case 4:
+                int input;
+                Console.Clear();
+                if (dormitoryManagers.Count > 0)
+                {
+                    Console.WriteLine("List of managers");
+                    Console.WriteLine();
+                    DormitoryManager manager = DormitoryManager.SelectDormitoryManager(dormitoryManagers);
+                    DormitoryManager.Showdata(manager);
+                }
+                else
+                    Console.WriteLine("No managers found.");
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                DormitoryManagersManagement();
+                break;
+                case 5:
+                PersonManagement();
+                break;
+            default:
+                string invalid;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid option.");
+                    Console.WriteLine("Enter [0] to return");
+                    invalid = Console.ReadLine();
+                } while (invalid != "0");
+                DormitoryManagersManagement();
+                break;
+        }
+    }
+
+
+    static void AssetManagement()
+    { }
 
 
 
@@ -545,10 +797,8 @@ static void DormitoryManagement()
 
 
 
-
-static void BlockManagement()
-{ }
-
+    static void Reporting()
+    { }
 
 
 
@@ -556,8 +806,8 @@ static void BlockManagement()
 
 
 
-static void UserManagement()
-{ }
+    static void Support()
+    { }
 
 
 
@@ -565,37 +815,9 @@ static void UserManagement()
 
 
 
-static void AssetManagement()
-{ }
-
-
-
-
-
-
-
-
-static void Reporting()
-{ }
-
-
-
-
-
-
-
-static void Support()
-{ }
-
-
-
-
-
-
-
-static void Main(string[] args)
-{
-    Login();
-}
+    static void Main(string[] args)
+    {
+        Login();
+    }
 }
 

@@ -41,7 +41,7 @@ namespace Pishrafte
         {
             Dormitorymanagers.Add(Dormitorymanager);
         }
-        public bool NationalIdExists(int NationalId, List<Student> students,List<DormitoryManager> dormitoryManagers , List<BlockManager> blockManagers)
+        public static bool NationalIdExists(int NationalId, List<Student> students,List<DormitoryManager> dormitoryManagers , List<BlockManager> blockManagers)
         {
             foreach(Student student in students)
                 if(NationalId==student.NationalIDNumber) return true;
@@ -51,7 +51,7 @@ namespace Pishrafte
                 if(NationalId == dormitoryManager.NationalIDNumber) return true;
             return false;
         }
-        public bool StudentIDNumberExists(int StudentIDNumber, List<Student> students, List<BlockManager> blockManagers)
+        public static bool StudentIDNumberExists(int StudentIDNumber, List<Student> students, List<BlockManager> blockManagers)
         {
             foreach (Student student in students)
                 if (StudentIDNumber == student.NationalIDNumber) return true;
@@ -60,7 +60,7 @@ namespace Pishrafte
             return false;
         }
         
-        public bool PhonenumberExists(int Phonenumber, List<Student> students, List<DormitoryManager> dormitoryManagers, List<BlockManager> blockManagers)
+        public static bool PhonenumberExists(int Phonenumber, List<Student> students, List<DormitoryManager> dormitoryManagers, List<BlockManager> blockManagers)
         {
             foreach (Student student in students)
                 if (Phonenumber == student.NationalIDNumber) return true;

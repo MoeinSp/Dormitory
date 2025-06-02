@@ -26,7 +26,48 @@ namespace Pishrafte
             Address = address;
             MaximumCapacity = maximumcapacity;
         }
-        public Dormitory CrateDormitory(List<DormitoryManager> listD)
+
+
+
+
+
+
+
+
+
+
+
+        public static int IndexdDormitoryManager(List<Dormitory> dormitories, DormitoryManager dormitoryManager)
+        {
+            for(int i = 0;i<dormitories.Count;i++)
+            {
+                if (dormitories[i].DormitoryManager == dormitoryManager) 
+                    return i;
+            }
+            return -1;
+        }
+
+
+
+
+
+
+
+
+
+
+        public int AssignDormitoryToManager(List<DormitoryManager> dormitoryManagers)
+        {
+            for (int i = 0; i < dormitoryManagers.Count; i++)
+            {
+                if (DormitoryManager.NationalIDNumber == dormitoryManagers[i].NationalIDNumber)
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+        public static (Dormitory,DormitoryManager) CrateDormitory(List<DormitoryManager> dormitoryManagers, List<Student> students, List<BlockManager> blockManagers)
         {
             Console.WriteLine("=== Dormitory Registration ===");
 
@@ -36,19 +77,21 @@ namespace Pishrafte
             Console.Write("Enter Address: ");
             string address = Console.ReadLine();
             int Capacity;
+            Console.Write("Enter Maximum Capacity: ");
             while (!int.TryParse(Console.ReadLine(), out Capacity))
             {
                 Console.Write("Invalid input. Please enter a valid Maximum Capacity ");
             }
-            if (listD.Count > 0)
+            DormitoryManager manager;
+            if (DormitoryManager.countWithoutDormitory(dormitoryManagers)>0)
             {
-                DormitoryManager manager = DormitoryManager.SelectDormitoryManager(listD);
+                manager = DormitoryManager.SelectDormitoryManager(dormitoryManagers);
             }
             else
             {
-                DormitoryManager manager = DormitoryManager.CrateDormitoryManager(listD);
+                manager = DormitoryManager.CrateDormitoryManager(dormitoryManagers, students, blockManagers);
             }
-            return new Dormitory(Name, Address, MaximumCapacity, manager);
+            return (new Dormitory(Name, address, Capacity, manager),manager);
         }
     }
 }
