@@ -41,7 +41,7 @@ namespace Pishrafte
         {
             for(int i = 0;i<dormitories.Count;i++)
             {
-                if (dormitories[i].DormitoryManager == dormitoryManager) 
+                if (dormitories[i].DormitoryManager.NationalIDNumber == dormitoryManager.NationalIDNumber) 
                     return i;
             }
             return -1;
@@ -85,7 +85,8 @@ namespace Pishrafte
             DormitoryManager manager;
             if (DormitoryManager.countWithoutDormitory(dormitoryManagers)>0)
             {
-                manager = DormitoryManager.SelectDormitoryManager(dormitoryManagers);
+                manager = DormitoryManager.SelectDormitoryManagerN(dormitoryManagers);
+                return (new Dormitory(Name, address, Capacity, manager), null);
             }
             else
             {

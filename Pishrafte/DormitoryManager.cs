@@ -45,16 +45,15 @@ namespace Pishrafte
 
 
 
-        public static int SselectDormitoryManager(List<DormitoryManager> dormitoryManagers)
+        public static int ShowListDormitoryManager(List<DormitoryManager> dormitoryManagers)
         {
             int count = 1;
             for (int i = 0; i < dormitoryManagers.Count; i++)
             {
-                if (dormitoryManagers[i].Dormitory == null)
-                {
+                
                     Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
                     count++;
-                }
+                
             }
             int input;
 
@@ -79,8 +78,12 @@ namespace Pishrafte
 
 
 
-        public static DormitoryManager SelectDormitoryManager(List<DormitoryManager> dormitoryManagers)
+        public static DormitoryManager SelectDormitoryManagerN(List<DormitoryManager> dormitoryManagers)
         {
+            if(dormitoryManagers.Count==0)
+            {
+                Console.WriteLine("empty");
+            }
             int count = 1;
             for (int i = 0; i < dormitoryManagers.Count; i++)
             {
@@ -101,6 +104,41 @@ namespace Pishrafte
 
             return dormitoryManagers[input - 1];
         }
+
+        public static DormitoryManager SelectDormitoryManagerAllFromList(List<DormitoryManager> dormitoryManagers)
+        {
+            if (dormitoryManagers.Count == 0)
+            {
+                Console.WriteLine("empty");
+            }
+            int count = 1;
+            for (int i = 0; i < dormitoryManagers.Count; i++)
+            {
+                
+                    Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
+                    count++;
+                
+            }
+            int input;
+
+            do
+            {
+                Console.WriteLine("From the list of dormitory managers, please enter the number of your choice:");
+
+            }
+            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitoryManagers.Count);
+
+            return dormitoryManagers[input - 1];
+        }
+
+
+
+
+
+
+
+
+
 
         public static int countWithoutDormitory(List<DormitoryManager> dormitoryManagers)
         {

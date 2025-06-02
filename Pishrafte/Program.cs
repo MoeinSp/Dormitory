@@ -529,11 +529,12 @@ class Program
                 var touple = Dormitory.CrateDormitory(dormitoryManagers, students, blockManagers);
                 Dormitory dorm = touple.Item1;
                 DormitoryManager dormitorymanager = touple.Item2;
+                if (dormitorymanager != null)
+                    dormitoryManagers.Add(dormitorymanager);
                 dormitories.Add(dorm);
-                dormitoryManagers.Add(dormitorymanager);
                 int index = dorm.AssignDormitoryToManager(dormitoryManagers);
                 dormitoryManagers[index].Dormitory = dorm;
-                Console.WriteLine("Dormitory registered successfully.\n Enter 1 to continue.");
+                Console.WriteLine("Dormitory registered successfully");
                 int input;
                 do
                 {
@@ -738,27 +739,57 @@ class Program
                 break;
             case 1:
                 dormitoryManagers.Add(DormitoryManager.CrateDormitoryManager(dormitoryManagers, students, blockManagers));
+                Console.WriteLine("No managers found.");
+                int input;
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+
                 DormitoryManagersManagement();
                 break;
             case 2:
-                int aa = DormitoryManager.SselectDormitoryManager(dormitoryManagers);
-                int a = Dormitory.IndexdDormitoryManager(dormitories, dormitoryManagers[aa]);
-                Console.WriteLine(a);
-                dormitories[a-1].DormitoryManager = null;
-                // check
-                dormitoryManagers.RemoveAt(aa);
+                if (dormitoryManagers.Count == 0)
+                {
+                    Console.WriteLine("No managers found.");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+
+                    DormitoryManagersManagement();
+                }
+                int aa = DormitoryManager.ShowListDormitoryManager(dormitoryManagers) - 1;
+                Console.WriteLine(aa);
+                if (dormitoryManagers[aa].Dormitory != null)
+                {
+                    int a = Dormitory.IndexdDormitoryManager(dormitories, dormitoryManagers[aa]);
+                    Console.WriteLine(a);
+                    dormitories[a].DormitoryManager = null;
+                    // check
+                    dormitoryManagers.RemoveAt(aa);
+                }
+                else
+                {
+                    dormitoryManagers.RemoveAt(aa);
+                }
+                Console.WriteLine("Dormitorymanger delete successfully.\n Enter 1 to continue.");
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+
                 DormitoryManagersManagement();
                 break;
             case 3:
                 break;
             case 4:
-                int input;
                 Console.Clear();
                 if (dormitoryManagers.Count > 0)
                 {
                     Console.WriteLine("List of managers");
                     Console.WriteLine();
-                    DormitoryManager manager = DormitoryManager.SelectDormitoryManager(dormitoryManagers);
+                    DormitoryManager manager = DormitoryManager.SelectDormitoryManagerAllFromList(dormitoryManagers);
                     DormitoryManager.Showdata(manager);
                 }
                 else
@@ -769,7 +800,7 @@ class Program
                 } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
                 DormitoryManagersManagement();
                 break;
-                case 5:
+            case 5:
                 PersonManagement();
                 break;
             default:
