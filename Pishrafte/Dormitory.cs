@@ -131,7 +131,11 @@ namespace Pishrafte
                         break;
                 case 3:
                     Console.WriteLine("Enter new maxiumcapacity");
-                    int max = Convert.ToInt32(Console.ReadLine());
+                    int max;
+                    while (!int.TryParse(Console.ReadLine(), out max))
+                    {
+                        Console.Write("Invalid input. Please enter a valid maxiumcapacity: ");
+                    }
                     dormitory.MaximumCapacity = max;
                     Console.WriteLine("Operation completed successfully. Press 1 to continue:");
                     do

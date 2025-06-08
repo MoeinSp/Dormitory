@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 using Pishrafte;
 
 class Program
@@ -262,7 +263,7 @@ class Program
                 {
                     Console.Write("Invalid input. Please enter a valid Student ID Number: ");
                 }
-                if (Usermanager.StudentIDNumberExists(studentId, students, blockManagers))
+                if (Usermanager.StudentIDNumberExists(studentId, students))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
                     goto Wrong3;
@@ -335,7 +336,7 @@ class Program
                 {
                     Console.Write("Invalid input. Please enter a valid Student ID Number: ");
                 }
-                if (Usermanager.StudentIDNumberExists(studentId, students, blockManagers))
+                if (Usermanager.StudentIDNumberExists(studentId, students))
                 {
                     Console.WriteLine("A user with this phonenumber already exists.");
                     goto Wrong9;
@@ -351,6 +352,7 @@ class Program
                 password = Console.ReadLine();
                 tempUser = new User(username, password, UserRole.BlockManager);
                 Usermanager.AddBlockmanager(tempUser);
+                students.Add(new Student(firstName, lastName, nationalId, phonenumber, address, age, studentId));
                 blockManagers.Add(blockManager);
                 Console.WriteLine(" Block Manager registered successfully!");
                 do
@@ -584,7 +586,7 @@ class Program
                     dormitorymanager = dorm.DormitoryManager;
                     Dormitory Changedorm = Dormitory.ChangeDormitory(dorm);
                     DormitoryManager changedormitorymanager = dormitorymanager;
-                    changedormitorymanager.Dormitory=Changedorm;
+                    changedormitorymanager.Dormitory = Changedorm;
                     dormitories.Remove(dorm);
                     dormitories.Add(Changedorm);
                     dormitoryManagers.Remove(dorm.DormitoryManager);
@@ -708,10 +710,14 @@ class Program
     {
         Console.Clear();
         Console.WriteLine("Please choose an option:");
-        Console.WriteLine("1. Dormitory Managers Management");
-        Console.WriteLine("2. Block Managers Management");
-        Console.WriteLine("3. Student Management");
-        Console.WriteLine("4. Back");
+        Console.WriteLine("1. Add new student");
+        Console.WriteLine("2. Delete student");
+        Console.WriteLine("3. Edit student information");
+        Console.WriteLine("4. Search by Name or Student ID ");
+        Console.WriteLine("5. View Full Student Information");
+        Console.WriteLine("6. Student Registration in Dormitory ");
+        Console.WriteLine("7. Dormitory Reassignment ");
+        Console.WriteLine("8. Back");
         Console.WriteLine("0. Exit(Don't use)");
         int choise = Convert.ToInt32(Console.ReadLine());
         switch (choise)
@@ -719,7 +725,7 @@ class Program
             case 0:
                 break;
             case 1:
-                DormitoryManagersManagement();
+                students.Add(Student.CrateStudent(dormitoryManagers, students, blockManagers));
                 break;
             case 2:
                 BlockManagersManagement();
@@ -728,7 +734,21 @@ class Program
                 StudentManagement();
                 break;
             case 4:
-                Mainmenu();
+                Student.SearchStudent(students);
+                break;
+            case 5:
+                Student.FullStudentInformation(students);
+                break;
+            case 6:
+                Student student = student.showlist(students);
+                student.Dormitory = Dormitory.ShowListDormitory(dormitories);
+                student.Block = Dormitory.ShowDormitoryBlocks(student.Dormitory);
+                student.Room = Block.ShowBlockRooms(student.Block);
+                break;
+            case 7:
+                break;
+            case 8:
+                PersonManagement();
                 break;
             default:
                 string invalid;
@@ -851,25 +871,28 @@ class Program
                 {
                     Console.WriteLine("List of dormitory manager for change :");
                     Console.WriteLine();
-                    dorm = Dormitory.ShowListDormitory(dormitories);
-                    dormitorymanager = dorm.DormitoryManager;
-                    Dormitory Changedorm = Dormitory.ChangeDormitorymanager(dormitoryManagers);
-
-
-                    DormitoryManager changedormitorymanager = dormitorymanager;
-                    changedormitorymanager.Dormitory = Changedorm;
-                    dormitories.Remove(dorm);
-                    dormitories.Add(Changedorm);
-                    dormitoryManagers.Remove(dorm.DormitoryManager);
-                    dormitoryManagers.Add(changedormitorymanager);
-                    else
-                        Console.WriteLine("No Dormitory found.");
-                    do
+                    DormitoryManager dormitorymanager = DormitoryManager.SelectDormitoryManagerAllFromList(dormitoryManagers);
+                    dormitoryManagers.Remove(dormitorymanager);
+                    DormitoryManager changemanager = DormitoryManager.EditDormitoryManager(dormitorymanager);
+                    if (dormitorymanager.Dormitory != null)
                     {
-                        Console.WriteLine("Please enter 1 to continue:");
-                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
-                    DormitoryManagersManagement();
+                        Dormitory dorm = dormitorymanager.Dormitory;
+                        dormitories.Remove(dormitorymanager.Dormitory);
+                        dorm.DormitoryManager = dormitorymanager;
+                        dormitories.Add(dorm);
+                        changemanager.Dormitory = dorm;
+                    }
+                    dormitoryManagers.Add(changemanager);
                 }
+                else if (dormitories.Count == 0)
+                {
+                    Console.WriteLine("No Dormitory manager found.");
+                }
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                DormitoryManagersManagement();
                 break;
             case 4:
                 Console.Clear();

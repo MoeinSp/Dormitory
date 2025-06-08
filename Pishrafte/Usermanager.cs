@@ -51,12 +51,10 @@ namespace Pishrafte
                 if(NationalId == dormitoryManager.NationalIDNumber) return true;
             return false;
         }
-        public static bool StudentIDNumberExists(int StudentIDNumber, List<Student> students, List<BlockManager> blockManagers)
+        public static bool StudentIDNumberExists(int StudentIDNumber, List<Student> students)
         {
             foreach (Student student in students)
                 if (StudentIDNumber == student.NationalIDNumber) return true;
-            foreach (BlockManager blockManager in blockManagers)
-                if (StudentIDNumber == blockManager.NationalIDNumber) return true;
             return false;
         }
         

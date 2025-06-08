@@ -9,7 +9,7 @@ using static Program;
 
 namespace Pishrafte
 {
-    internal class DormitoryManager  : Person
+    internal class DormitoryManager : Person
     {
         public string Role;
         public Dormitory Dormitory;
@@ -50,10 +50,10 @@ namespace Pishrafte
             int count = 1;
             for (int i = 0; i < dormitoryManagers.Count; i++)
             {
-                
-                    Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
-                    count++;
-                
+
+                Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
+                count++;
+
             }
             int input;
 
@@ -80,7 +80,7 @@ namespace Pishrafte
 
         public static DormitoryManager SelectDormitoryManagerN(List<DormitoryManager> dormitoryManagers)
         {
-            if(dormitoryManagers.Count==0)
+            if (dormitoryManagers.Count == 0)
             {
                 Console.WriteLine("empty");
             }
@@ -114,10 +114,10 @@ namespace Pishrafte
             int count = 1;
             for (int i = 0; i < dormitoryManagers.Count; i++)
             {
-                
-                    Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
-                    count++;
-                
+
+                Console.WriteLine(count + ". Name: " + dormitoryManagers[i].FirstName + " " + dormitoryManagers[i].LastName + ", NationalIDNumber: " + dormitoryManagers[i].NationalIDNumber);
+                count++;
+
             }
             int input;
 
@@ -130,6 +130,127 @@ namespace Pishrafte
 
             return dormitoryManagers[input - 1];
         }
+
+
+
+
+
+
+
+
+
+
+
+        public static DormitoryManager EditDormitoryManager(DormitoryManager manager)
+        {
+            Console.Clear();
+            Console.WriteLine("Choose which section you want to change:");
+            Console.WriteLine("1. First Name");
+            Console.WriteLine("2. Last Name");
+            Console.WriteLine("3. National ID");
+            Console.WriteLine("4. Phone Number");
+            Console.WriteLine("5. Address");
+            Console.WriteLine("6. Role");
+            Console.WriteLine("0. Back");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 0:
+                    return manager;
+                    break;
+                case 1:
+                    Console.WriteLine("Enter new first name:");
+                    manager.FirstName = Console.ReadLine();
+                    Console.WriteLine("Operation completed successfully. Press 1 to continue:");
+                    int inputt;
+                    do
+                    {
+                    } while (!int.TryParse(Console.ReadLine(), out inputt) || inputt != 1);
+                    EditDormitoryManager(manager);
+                    break;
+
+                case 2:
+                    Console.WriteLine("Enter new last name:");
+                    manager.LastName = Console.ReadLine();
+                    Console.WriteLine("Operation completed successfully. Press 1 to continue:");
+                    do
+                    {
+                    } while (!int.TryParse(Console.ReadLine(), out inputt) || inputt != 1);
+                    EditDormitoryManager(manager);
+                    break;
+
+                case 3:
+                    Console.WriteLine("Enter new national ID:");
+                    int nationalId;
+                    while (!int.TryParse(Console.ReadLine(), out nationalId))
+                    {
+                        Console.Write("Invalid input. Please enter a valid National ID Number: ");
+                    }
+                    manager.NationalIDNumber = nationalId;
+                    Console.WriteLine("Operation completed successfully. Press 1 to continue:");
+                    do
+                    {
+                    } while (!int.TryParse(Console.ReadLine(), out inputt) || inputt != 1);
+                    EditDormitoryManager(manager);
+                    break;
+
+                case 4:
+                    Console.WriteLine("Enter new phone number:");
+                    int phone;
+                    while (!int.TryParse(Console.ReadLine(), out phone))
+                    {
+                        Console.Write("Invalid input. Please enter a valid National ID Number: ");
+                    }
+                    manager.PhoneNumber = phone;
+                    Console.WriteLine("Operation completed successfully. Press 1 to continue:");
+                    do
+                    {
+                    } while (!int.TryParse(Console.ReadLine(), out inputt) || inputt != 1);
+                    EditDormitoryManager(manager);
+                    break;
+
+                case 5:
+                    Console.WriteLine("Enter new address:");
+                    manager.Address = Console.ReadLine();
+                    Console.WriteLine("Operation completed successfully. Press 1 to continue:");
+                    do
+                    {
+                    } while (!int.TryParse(Console.ReadLine(), out inputt) || inputt != 1);
+                    EditDormitoryManager(manager);
+                    break;
+
+                case 6:
+                    Console.WriteLine("Enter new Role:");
+                    manager.Role = Console.ReadLine();
+                    Console.WriteLine("Operation completed successfully. Press 1 to continue:");
+                    do
+                    {
+                    } while (!int.TryParse(Console.ReadLine(), out inputt) || inputt != 1);
+                    EditDormitoryManager(manager);
+                    break;
+
+                default:
+                    string invalid;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid option.");
+                        Console.WriteLine("Enter [0] to return");
+                        invalid = Console.ReadLine();
+                    } while (invalid != "0");
+                    return EditDormitoryManager(manager);
+            }
+            return manager;
+        }
+
+
+
+
+
+
+
 
 
 
@@ -173,7 +294,7 @@ namespace Pishrafte
 
 
 
-        public static DormitoryManager CrateDormitoryManager(List<DormitoryManager> dormitoryManagers,List<Student> students,List<BlockManager> blockManagers)
+        public static DormitoryManager CrateDormitoryManager(List<DormitoryManager> dormitoryManagers, List<Student> students, List<BlockManager> blockManagers)
         {
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
