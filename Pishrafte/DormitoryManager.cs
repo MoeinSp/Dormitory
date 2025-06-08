@@ -25,23 +25,23 @@ namespace Pishrafte
 
 
 
-        public static DormitoryManager ShowDormitoryManager(List<DormitoryManager> dormitoryManagers)
-        {
-            for (int i = 1; i <= dormitoryManagers.Count;i++)
-            {
-                Console.WriteLine(i + ". Name: " + dormitoryManagers[i-1].FirstName + " "+ dormitoryManagers[i-1].LastName + ", NationalIDNumber: " + dormitoryManagers[i - 1].NationalIDNumber);
-            }
-            int input;
+        //public static DormitoryManager ShowDormitoryManager(List<DormitoryManager> dormitoryManagers)
+        //{
+        //    for (int i = 1; i <= dormitoryManagers.Count;i++)
+        //    {
+        //        Console.WriteLine(i + ". Name: " + dormitoryManagers[i-1].FirstName + " "+ dormitoryManagers[i-1].LastName + ", NationalIDNumber: " + dormitoryManagers[i - 1].NationalIDNumber);
+        //    }
+        //    int input;
 
-            do
-            {
-                Console.WriteLine("From the list of available dormitory managers, please enter the number of your choice:");
+        //    do
+        //    {
+        //        Console.WriteLine("From the list of available dormitory managers, please enter the number of your choice:");
 
-            }
-            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitoryManagers.Count);
+        //    }
+        //    while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitoryManagers.Count);
 
-            return dormitoryManagers[input-1];
-        }
+        //    return dormitoryManagers[input-1];
+        //}
 
 
 

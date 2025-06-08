@@ -543,10 +543,77 @@ class Program
                 DormitoryManagement();
                 break;
             case 2:
+                if (dormitories.Count == 0)
+                {
+                    Console.WriteLine("No dormitory found.");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+
+                    DormitoryManagement();
+                }
+                int aa = Dormitory.SelectDormitoryAllFromList(dormitories) - 1;
+                if (dormitories[aa].DormitoryManager != null)
+                {
+                    DormitoryManager temp = dormitories[aa].DormitoryManager;
+                    temp.Dormitory = null;
+                    dormitoryManagers.Remove(dormitories[aa].DormitoryManager);
+                    dormitoryManagers.Add(temp);
+                    dormitories.Remove(dormitories[aa]);
+                }
+                else
+                {
+                    dormitories.RemoveAt(aa);
+                }
+                Console.WriteLine("Dormitory delete successfully.");
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+
+                DormitoryManagement();
                 break;
             case 3:
+                Console.Clear();
+                if (dormitories.Count > 0)
+                {
+                    Console.WriteLine("List of dormitory for change :");
+                    Console.WriteLine();
+                    dorm = Dormitory.ShowListDormitory(dormitories);
+                    dormitorymanager = dorm.DormitoryManager;
+                    Dormitory Changedorm = Dormitory.ChangeDormitory(dorm);
+                    DormitoryManager changedormitorymanager = dormitorymanager;
+                    changedormitorymanager.Dormitory=Changedorm;
+                    dormitories.Remove(dorm);
+                    dormitories.Add(Changedorm);
+                    dormitoryManagers.Remove(dorm.DormitoryManager);
+                    dormitoryManagers.Add(changedormitorymanager);
+                }
+                else
+                    Console.WriteLine("No Dormitory found.");
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                DormitoryManagement();
                 break;
             case 4:
+                Console.Clear();
+                if (dormitories.Count > 0)
+                {
+                    Console.WriteLine("List of dormitory :");
+                    Console.WriteLine();
+                    Dormitory Dorm = Dormitory.ShowListDormitory(dormitories);
+                    Dormitory.Showdata(Dorm);
+                }
+                else
+                    Console.WriteLine("No Dormitory found.");
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                DormitoryManagement();
                 break;
             case 5:
                 Mainmenu();
@@ -760,20 +827,17 @@ class Program
                     DormitoryManagersManagement();
                 }
                 int aa = DormitoryManager.ShowListDormitoryManager(dormitoryManagers) - 1;
-                Console.WriteLine(aa);
                 if (dormitoryManagers[aa].Dormitory != null)
                 {
                     int a = Dormitory.IndexdDormitoryManager(dormitories, dormitoryManagers[aa]);
-                    Console.WriteLine(a);
                     dormitories[a].DormitoryManager = null;
-                    // check
                     dormitoryManagers.RemoveAt(aa);
                 }
                 else
                 {
                     dormitoryManagers.RemoveAt(aa);
                 }
-                Console.WriteLine("Dormitorymanger delete successfully.\n Enter 1 to continue.");
+                Console.WriteLine("Dormitorymanger delete successfully.");
                 do
                 {
                     Console.WriteLine("Please enter 1 to continue:");
@@ -782,6 +846,30 @@ class Program
                 DormitoryManagersManagement();
                 break;
             case 3:
+                Console.Clear();
+                if (dormitoryManagers.Count > 0)
+                {
+                    Console.WriteLine("List of dormitory manager for change :");
+                    Console.WriteLine();
+                    dorm = Dormitory.ShowListDormitory(dormitories);
+                    dormitorymanager = dorm.DormitoryManager;
+                    Dormitory Changedorm = Dormitory.ChangeDormitorymanager(dormitoryManagers);
+
+
+                    DormitoryManager changedormitorymanager = dormitorymanager;
+                    changedormitorymanager.Dormitory = Changedorm;
+                    dormitories.Remove(dorm);
+                    dormitories.Add(Changedorm);
+                    dormitoryManagers.Remove(dorm.DormitoryManager);
+                    dormitoryManagers.Add(changedormitorymanager);
+                    else
+                        Console.WriteLine("No Dormitory found.");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    DormitoryManagersManagement();
+                }
                 break;
             case 4:
                 Console.Clear();
