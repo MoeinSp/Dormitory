@@ -740,10 +740,10 @@ class Program
                 Student.FullStudentInformation(students);
                 break;
             case 6:
-                Student student = student.showlist(students);
+                Student student = Student.SelectStudentFromAll(students);
                 student.Dormitory = Dormitory.ShowListDormitory(dormitories);
                 student.Block = Dormitory.ShowDormitoryBlocks(student.Dormitory);
-                student.Room = Block.ShowBlockRooms(student.Block);
+                student.Room = Block.ShowBlockRooms(student.Block.Room);
                 break;
             case 7:
                 break;

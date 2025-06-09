@@ -11,8 +11,8 @@ namespace Pishrafte
         public int RoomID;
         public int NumberofFloors;
         private int MaximumCapacity = 6;
-        public List<Equipment> Equipments;
-        public List<Student> Students;
+        public List<Equipment> Equipments = new List<Equipment>();
+        public List<Student> Students= new List<Student>();
         public Block Boluk;
       ///یادت باشه شرط ظرفیت رو بزاری توی متد اد
     }

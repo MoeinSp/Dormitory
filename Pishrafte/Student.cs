@@ -12,7 +12,7 @@ namespace Pishrafte
         public Room Room;
         public Dormitory Dormitory;
         public Block Block;
-        private List<Equipment> PersonalEquipments;
+        private List<Equipment> PersonalEquipments = new List<Equipment>();
 
         public Student(string firstName, string lastName, int nationalIDNumber, int phoneNumber, string address, int age, int studentIDNumber)
                 : base(firstName, lastName, nationalIDNumber, phoneNumber, address, age)
@@ -103,6 +103,63 @@ namespace Pishrafte
             Console.WriteLine();
             Console.WriteLine();
         }
+
+
+
+
+
+
+
+        public static void FullStudentInformation(List<Student> students)
+        {
+            if (students.Count == 0)
+            {
+                Console.WriteLine("No student found");
+                return;
+            }
+            else
+            {
+                Student student = SelectStudentFromAll(students);
+                Console.WriteLine("First Name: " + student.FirstName);
+                Console.WriteLine("Last Name: " + student.LastName);
+                Console.WriteLine("National ID: " + student.NationalIDNumber);
+                Console.WriteLine("Phone Number: " + student.PhoneNumber);
+                Console.WriteLine("Address: " + student.Address);
+                Console.WriteLine("Age: " + student.Age);
+                Console.WriteLine("Dormitory Name: " + (student.Dormitory != null ? student.Dormitory.Name : "None"));
+                Console.WriteLine("Block Name: " + (student.Block != null ? student.Block.Name : "None"));
+                Console.WriteLine("Room id: " + (student.Room != null ? student.Room.RoomID : "None"));
+                Equipment.SohwEquipments(student.PersonalEquipments);
+            }
+        }
+        public static Student SelectStudentFromAll(List<Student> students)
+        {
+
+            if (students.Count == 0)
+            {
+                Console.WriteLine("empty");
+                return null;
+            }
+            int count = 1;
+            for (int i = 0; i < students.Count; i++)
+            {
+
+                Console.WriteLine(count + ". Name: " + students[i].FirstName + " " + students[i].LastName + ", NationalIDNumber: " + students[i].NationalIDNumber);
+                count++;
+
+            }
+            int input;
+
+            do
+            {
+                Console.WriteLine("From the list of available students, please enter the number of your choice:");
+
+            }
+            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > students.Count);
+
+            return students[input - 1];
+        }
     }
+
 }
     

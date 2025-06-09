@@ -12,7 +12,7 @@ namespace Pishrafte
         public string Address;
         public int MaximumCapacity;
         public DormitoryManager DormitoryManager;
-        private List<Block> BLOCK;
+        private List<Block> BLOCK=new List<Block>();
         public Dormitory(string name, string address, int maximumcapacity, DormitoryManager dormitorymanager)
         {
             Name = name;
@@ -29,12 +29,8 @@ namespace Pishrafte
 
         public static void ShowBlock(Dormitory dormitory)
         {
-            if (dormitory.BLOCK == null)
-            {
-                Console.WriteLine("Empty");
-                return;
-            }
-            else if (dormitory.BLOCK.Count == 0)
+            Console.WriteLine("Block List :");
+            if (dormitory.BLOCK.Count == 0)
             {
                 Console.WriteLine("Empty");
                 return;
@@ -47,7 +43,29 @@ namespace Pishrafte
             }
         }
 
+        public static Block ShowDormitoryBlocks(Dormitory dormitory)
+        {
+            Console.WriteLine("Block List :");
+            if (dormitory.BLOCK.Count == 0)
+            {
+                Console.WriteLine("Empty");
+                return null;
+            }
+            int count = 1;
+            foreach (Block block in dormitory.BLOCK)
+            {
+                Console.WriteLine(count + ". Block Name: " + block.Name + " " + ", Address: " + block.Address);
+                count++;
+            }
+            int input;
+            do
+            {
+                Console.WriteLine("From the list of available Block, please enter the number of your choice:");
 
+            }
+            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitory.BLOCK.Count);
+            return dormitory.BLOCK[input-1];
+        }
 
 
 
@@ -63,7 +81,6 @@ namespace Pishrafte
             Console.WriteLine("Maximum Capacity: " + dormitory.MaximumCapacity);
             Console.WriteLine("Dormitory Manager Name: " + (dormitory.DormitoryManager == null ? "None" : (dormitory.DormitoryManager.FirstName + " " + dormitory.DormitoryManager.LastName)));
             Console.WriteLine("Address: " + dormitory.Address);
-            Console.WriteLine("Block List :");
             ShowBlock(dormitory);
         }
 
