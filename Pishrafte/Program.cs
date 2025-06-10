@@ -345,7 +345,7 @@ class Program
                 Console.Write("Enter Role: ");
                 string role = Console.ReadLine();
 
-                BlockManager blockManager = new BlockManager(firstName, lastName, nationalId, phonenumber, address, age, studentId, role);
+                BlockManager blockManager = new BlockManager(firstName, lastName, nationalId, phonenumber, address, age, studentId);
 
                 Console.WriteLine("Enter your username:");
                 username = Console.ReadLine();
@@ -532,12 +532,16 @@ class Program
                 var touple = Dormitory.CrateDormitory(dormitoryManagers, students, blockManagers);
                 Dormitory dorm = touple.Item1;
                 DormitoryManager dormitorymanager = touple.Item2;
-                if (dormitorymanager != null)
-                    dormitoryManagers.Add(dormitorymanager);
+                DormitoryManager dormmanager = dorm.DormitoryManager;
+
+                if (dormitorymanager == null)
+                {
+                    dormitoryManagers.Remove(dormitorymanager);
+                }
+                dormmanager.Dormitory = dorm;
+                dormitoryManagers.Add(dormmanager);
+
                 dormitories.Add(dorm);
-                int index = dorm.AssignDormitoryToManager(dormitoryManagers);
-                dormitoryManagers[index].Dormitory = dorm;
-                Console.WriteLine("Dormitory registered successfully");
                 int input;
                 do
                 {
@@ -649,6 +653,18 @@ class Program
     {
         {
             Console.Clear();
+            if (dormitories.Count == 0)
+            {
+                Console.WriteLine("Dormitory not found");
+                int inputt;
+                do
+                {
+                    Console.WriteLine("Please enter 1 to back Mainmenu:");
+                    
+                } while (!int.TryParse(Console.ReadLine(), out inputt) || inputt != 1);
+                Mainmenu();
+            }
+            Dormitory olddormitory = Dormitory.ShowListDormitory(dormitories);
             Console.WriteLine("Please choose an option:");
             Console.WriteLine("1. Add New Block");
             Console.WriteLine("2. Delete Block");
@@ -657,6 +673,105 @@ class Program
             Console.WriteLine("5. Back");
             Console.WriteLine("0. Exit(Don't use)");
             int choise = Convert.ToInt32(Console.ReadLine());
+
+            switch (choise)
+            {
+                case 0:
+                    break;
+                case 1:
+                    Console.Clear();
+                    var touple = Block.CrateBlock(dormitoryManagers, students, blockManagers);
+                    Block block = touple.Item1;
+                    BlockManager blockmanager = touple.Item2;
+                    Student student = touple.Item3;
+                    blockmanager.Block = block;
+                    Dormitory newdormitory= olddormitory;
+                    newdormitory.BLOCKS.Add(block);
+                    
+                    students.Remove(student);
+                    students.Add(student);
+                    blockManagers.Remove(blockmanager);
+                    blockManagers.Add(blockmanager);
+                    blocks.Add(block);
+                    dormitories.Remove(olddormitory);
+                    dormitories.Add(newdormitory);
+
+                    Console.WriteLine("Block registered successfully");
+                    int input;
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    BlockManagement();
+                    break;
+                case 2:
+                    if (dormitories.Count == 0)
+                    {
+                        Console.WriteLine("No dormitory found.");
+                        do
+                        {
+                            Console.WriteLine("Please enter 1 to continue:");
+                        } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+
+                        BlockManagement();
+                    }
+                    int aa = Dormitory.SelectDormitoryAllFromList(dormitories) - 1;
+                    if (dormitories[aa].DormitoryManager != null)
+                    {
+                        DormitoryManager temp = dormitories[aa].DormitoryManager;
+                        temp.Dormitory = null;
+                        dormitoryManagers.Remove(dormitories[aa].DormitoryManager);
+                        dormitoryManagers.Add(temp);
+                        dormitories.Remove(dormitories[aa]);
+                    }
+                    else
+                    {
+                        dormitories.RemoveAt(aa);
+                    }
+                    Console.WriteLine("Dormitory delete successfully.");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+
+                    BlockManagement();
+                    break;
+                case 3:
+                    Console.Clear();
+                    
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    BlockManagement();
+                    break;
+                case 4:
+                    Console.Clear();
+                    if (blocks.Count > 0)
+                    {
+                        Console.WriteLine("List of block :");
+                        Console.WriteLine();
+                        Block.ShowlistBlock(blocks);
+                    }
+                    else
+                        Console.WriteLine("No block found.");
+                    BlockManagement();
+                    break;
+                case 5:
+                    Mainmenu();
+                    break;
+                default:
+                    string invalid;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid option.");
+                        Console.WriteLine("Enter [0] to return");
+                        invalid = Console.ReadLine();
+                    } while (invalid != "0");
+                    DormitoryManagement();
+                    break;
+            }
         }
     }
 
@@ -726,7 +841,7 @@ class Program
             case 0:
                 break;
             case 1:
-                students.Add(Student.CrateStudent(dormitoryManagers, students, blockManagers));
+                students.Add(Student.CreateStudent(dormitoryManagers, students, blockManagers));
                 int input;
                 do
                 {
@@ -757,19 +872,75 @@ class Program
                 StudentManagement();
                 break;
             case 6:
+                if(students.Count == 0)
+                {
+                    Console.WriteLine("No student found");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    StudentManagement();
+                }
                 Student student = Student.SelectStudentFromAll(students);
+                if (dormitories.Count == 0)
+                {
+                    Console.WriteLine("No dormitory found");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    StudentManagement();
+                }
                 Dormitory Dormitory = Dormitory.ShowListDormitory(dormitories);
+                if (Dormitory.BLOCKS.Count == 0)
+                {
+                    Console.WriteLine("No block found");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    StudentManagement();
+                }
                 Block Block = Dormitory.ShowDormitoryBlocks(student.Dormitory);
+                if (Block.Rooms.Count == 0)
+                {
+                    Console.WriteLine("No room found");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    StudentManagement();
+                }
                 Room Room = Block.ShowBlockRooms(student.Block.Rooms);
-                if(Dormitory.capacity==0)
+                if (Dormitory.capacity == 0)
                 {
                     Console.WriteLine("FULL");
                 }
-                else if (Room != null||Dormitory.capacity!=0)
+                else if( Dormitory.capacity != 0 ||Room.capacity!=0)
                 {
-                    student.Dormitory = Dormitory;
-                    student.Block = Block;
-                    student.Room = Room;
+                    students.Remove(student);
+                    rooms.Remove(Room);
+                    blocks.Remove(Block);
+                    dormitories.Remove(Dormitory);
+
+                    Room wwnewroom = Room;
+                    Block wwnewblock = Block;
+                    Dormitory wwdormitory = Dormitory;
+
+                    wwnewroom.Students.Add(student);
+                    wwnewblock.Rooms.Remove(Room);
+                    wwnewblock.Rooms.Add(wwnewroom);
+                    wwdormitory.BLOCKS.Remove(Block);
+                    wwdormitory.BLOCKS.Add(wwnewblock);
+
+
+                    student.Dormitory = wwdormitory;
+                    student.Block = wwnewblock;
+                    student.Room = wwnewroom;
+                    students.Add(student);
+                    dormitories.Add(wwdormitory);
+                    blocks.Add(wwnewblock);
+                    rooms.Add(wwnewroom);
                 }
                 do
                 {
@@ -779,7 +950,7 @@ class Program
                 break;
             case 7:
                 student = Student.SelectStudentFromAll(students);
-                if(student.Room==null)
+                if (student.Room == null)
                 {
                     Console.WriteLine("The student has not previously registered in the dormitory.");
                     do
@@ -798,14 +969,57 @@ class Program
                 else if (Room != null || Dormitory.capacity != 0)
                 {
                     Room Oldroom = student.Room;
+                    Block Oldblock = student.Block;
+                    Dormitory olddormitory = student.Dormitory;
+
+                    students.Remove(student);
                     rooms.Remove(Oldroom);
-                    student.Room.Students.Remove(student);
-                    rooms.Add(student.Room);
-                    student.Dormitory = Dormitory;
-                    student.Block = Block;
-                    student.Room = Room;
-                    blocks.Remove(student.Block);
-                    student.Block.Rooms.Remove()
+                    blocks.Remove(Oldblock);
+                    dormitories.Remove(olddormitory);
+                    Room newroom = Oldroom;
+                    newroom.Students.Remove(student);
+                    Block newblock = Oldblock;
+                    newblock.Rooms.Remove(Oldroom);
+                    newblock.Rooms.Add(newroom);
+                    Dormitory newdormitory = olddormitory;
+                    newdormitory.BLOCKS.Remove(Oldblock);
+                    newdormitory.BLOCKS.Add(newblock);
+
+
+
+                    student.Dormitory = newdormitory;
+                    student.Block = newblock;
+                    student.Room = newroom;
+                    students.Add(student);
+                    dormitories.Add(newdormitory);
+                    blocks.Add(newblock);
+                    rooms.Add(newroom);
+
+                    students.Remove(student);
+                    rooms.Remove(Room);
+                    blocks.Remove(Block);
+                    dormitories.Remove(Dormitory);
+
+                    Room wwnewroom = Room;
+                    Block wwnewblock = Block;
+                    Dormitory wwdormitory = Dormitory;
+
+                    wwnewroom.Students.Add(student);
+                    wwnewblock.Rooms.Remove(Room);
+                    wwnewblock.Rooms.Add(wwnewroom);
+                    wwdormitory.BLOCKS.Remove(Block);
+                    wwdormitory.BLOCKS.Add(wwnewblock);
+
+
+                    student.Dormitory = wwdormitory;
+                    student.Block = wwnewblock;
+                    student.Room = wwnewroom;
+                    students.Add(student);
+                    dormitories.Add(wwdormitory);
+                    blocks.Add(wwnewblock);
+                    rooms.Add(wwnewroom);
+
+
                 }
                 do
                 {

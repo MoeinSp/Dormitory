@@ -12,7 +12,7 @@ namespace Pishrafte
         public string Address;
         public int MaximumCapacity;
         public DormitoryManager DormitoryManager;
-        private List<Block> BLOCKS = new List<Block>();
+        public List<Block> BLOCKS = new List<Block>();
         public int capacity => MaximumCapacity - StudentCount();
 
 
@@ -220,7 +220,7 @@ namespace Pishrafte
             }
             while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitories.Count);
 
-            return dormitories[input - 1];
+            return dormitories[input-1];
         }
 
 

@@ -35,7 +35,7 @@ namespace Pishrafte
 
 
 
-        public static Student CrateStudent(List<DormitoryManager> dormitoryManagers, List<Student> students, List<BlockManager> blockManagers)
+        public static Student CreateStudent(List<DormitoryManager> dormitoryManagers, List<Student> students, List<BlockManager> blockManagers)
         {
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();

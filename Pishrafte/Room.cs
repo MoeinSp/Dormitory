@@ -12,9 +12,15 @@ namespace Pishrafte
         public int NumberofFloors;
         private int MaximumCapacity = 6;
         public List<Equipment> Equipments = new List<Equipment>();
-        public List<Student> Students= new List<Student>();
-        public Block Boluk;
-        public int capacity =>6 - Students.Count ;
-        ///یادت باشه شرط ظرفیت رو بزاری توی متد اد
+        public List<Student> Students = new List<Student>();
+        public Block Block;
+        public int capacity => 6 - Students.Count;
+
+        public Room(int RoomId, int NumberofFloorss)
+        {
+            RoomID = RoomId;
+            NumberofFloors = NumberofFloorss;
+        }
     }
+
 }
