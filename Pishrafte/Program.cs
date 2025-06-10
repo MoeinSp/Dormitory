@@ -16,6 +16,7 @@ class Program
     static List<Equipment> equipments = new List<Equipment>();
     static List<Dormitory> dormitories = new List<Dormitory>();
     static List<Block> blocks = new List<Block>();
+    static List<Room> rooms = new List<Room>();
     public enum UserRole
     {
         Student,
@@ -726,6 +727,12 @@ class Program
                 break;
             case 1:
                 students.Add(Student.CrateStudent(dormitoryManagers, students, blockManagers));
+                int input;
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                StudentManagement();
                 break;
             case 2:
                 BlockManagersManagement();
@@ -735,17 +742,76 @@ class Program
                 break;
             case 4:
                 Student.SearchStudent(students);
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                StudentManagement();
                 break;
             case 5:
                 Student.FullStudentInformation(students);
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                StudentManagement();
                 break;
             case 6:
                 Student student = Student.SelectStudentFromAll(students);
-                student.Dormitory = Dormitory.ShowListDormitory(dormitories);
-                student.Block = Dormitory.ShowDormitoryBlocks(student.Dormitory);
-                student.Room = Block.ShowBlockRooms(student.Block.Room);
+                Dormitory Dormitory = Dormitory.ShowListDormitory(dormitories);
+                Block Block = Dormitory.ShowDormitoryBlocks(student.Dormitory);
+                Room Room = Block.ShowBlockRooms(student.Block.Rooms);
+                if(Dormitory.capacity==0)
+                {
+                    Console.WriteLine("FULL");
+                }
+                else if (Room != null||Dormitory.capacity!=0)
+                {
+                    student.Dormitory = Dormitory;
+                    student.Block = Block;
+                    student.Room = Room;
+                }
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                StudentManagement();
                 break;
             case 7:
+                student = Student.SelectStudentFromAll(students);
+                if(student.Room==null)
+                {
+                    Console.WriteLine("The student has not previously registered in the dormitory.");
+                    do
+                    {
+                        Console.WriteLine("Please enter 1 to continue:");
+                    } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                    StudentManagement();
+                }
+                Dormitory = Dormitory.ShowListDormitory(dormitories);
+                Block = Dormitory.ShowDormitoryBlocks(student.Dormitory);
+                Room = Block.ShowBlockRooms(student.Block.Rooms);
+                if (Dormitory.capacity == 0)
+                {
+                    Console.WriteLine("FULL");
+                }
+                else if (Room != null || Dormitory.capacity != 0)
+                {
+                    Room Oldroom = student.Room;
+                    rooms.Remove(Oldroom);
+                    student.Room.Students.Remove(student);
+                    rooms.Add(student.Room);
+                    student.Dormitory = Dormitory;
+                    student.Block = Block;
+                    student.Room = Room;
+                    blocks.Remove(student.Block);
+                    student.Block.Rooms.Remove()
+                }
+                do
+                {
+                    Console.WriteLine("Please enter 1 to continue:");
+                } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
+                StudentManagement();
                 break;
             case 8:
                 PersonManagement();

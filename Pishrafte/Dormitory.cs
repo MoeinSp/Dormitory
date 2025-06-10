@@ -12,7 +12,10 @@ namespace Pishrafte
         public string Address;
         public int MaximumCapacity;
         public DormitoryManager DormitoryManager;
-        private List<Block> BLOCK=new List<Block>();
+        private List<Block> BLOCKS = new List<Block>();
+        public int capacity => MaximumCapacity - StudentCount();
+
+
         public Dormitory(string name, string address, int maximumcapacity, DormitoryManager dormitorymanager)
         {
             Name = name;
@@ -27,16 +30,30 @@ namespace Pishrafte
             MaximumCapacity = maximumcapacity;
         }
 
+
+
+        public int StudentCount()
+        {
+            int count = 0;
+            foreach (Block block in BLOCKS)
+            {
+                foreach (Room room in block.Rooms)
+                {
+                    count += room.Students.Count;
+                }
+            }
+            return count;
+        }
         public static void ShowBlock(Dormitory dormitory)
         {
             Console.WriteLine("Block List :");
-            if (dormitory.BLOCK.Count == 0)
+            if (dormitory.BLOCKS.Count == 0)
             {
                 Console.WriteLine("Empty");
                 return;
             }
             int count = 1;
-            foreach (Block block in dormitory.BLOCK)
+            foreach (Block block in dormitory.BLOCKS)
             {
                 Console.WriteLine(count + ". Block Name: " + block.Name + " " + ", Address: " + block.Address);
                 count++;
@@ -46,13 +63,13 @@ namespace Pishrafte
         public static Block ShowDormitoryBlocks(Dormitory dormitory)
         {
             Console.WriteLine("Block List :");
-            if (dormitory.BLOCK.Count == 0)
+            if (dormitory.BLOCKS.Count == 0)
             {
                 Console.WriteLine("Empty");
                 return null;
             }
             int count = 1;
-            foreach (Block block in dormitory.BLOCK)
+            foreach (Block block in dormitory.BLOCKS)
             {
                 Console.WriteLine(count + ". Block Name: " + block.Name + " " + ", Address: " + block.Address);
                 count++;
@@ -63,8 +80,8 @@ namespace Pishrafte
                 Console.WriteLine("From the list of available Block, please enter the number of your choice:");
 
             }
-            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitory.BLOCK.Count);
-            return dormitory.BLOCK[input-1];
+            while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > dormitory.BLOCKS.Count);
+            return dormitory.BLOCKS[input - 1];
         }
 
 
@@ -145,7 +162,7 @@ namespace Pishrafte
                     {
                     } while (!int.TryParse(Console.ReadLine(), out input) || input != 1);
                     ChangeDormitory(dormitory);
-                        break;
+                    break;
                 case 3:
                     Console.WriteLine("Enter new maxiumcapacity");
                     int max;
@@ -173,7 +190,7 @@ namespace Pishrafte
                     break;
             }
             return dormitory;
-            
+
         }
 
 

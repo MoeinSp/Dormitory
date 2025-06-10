@@ -14,6 +14,7 @@ namespace Pishrafte
         public List<Equipment> Equipments = new List<Equipment>();
         public List<Student> Students= new List<Student>();
         public Block Boluk;
-      ///یادت باشه شرط ظرفیت رو بزاری توی متد اد
+        public int capacity =>6 - Students.Count ;
+        ///یادت باشه شرط ظرفیت رو بزاری توی متد اد
     }
 }

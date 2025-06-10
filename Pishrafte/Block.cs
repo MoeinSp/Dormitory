@@ -12,12 +12,20 @@ namespace Pishrafte
         public string Address;
         public int NumberofFloors;
         public BlockManager BlockManager;
-        public List<Room> Room = new List<Room>();
+        public List<Room> Rooms = new List<Room>();
         public Dormitory Dormitory;
+        public int capacity => 6*Rooms.Count-Capacityy(Rooms);
 
 
 
-
+        public int Capacityy(List<Room> Rooms)
+        {
+            int count = 0;
+            foreach (Room room in Rooms) {
+                count += room.capacity;
+            }
+            return count;
+        }
 
 
 
@@ -46,6 +54,11 @@ namespace Pishrafte
 
             }
             while (!int.TryParse(Console.ReadLine(), out input) || input < 1 || input > roomList.Count);
+            if (roomList[input - 1].capacity == 0)
+            {
+                Console.WriteLine("FULL");
+                return null;
+            }
             return roomList[input- 1];
         }
 
